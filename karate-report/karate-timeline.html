@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"features\/Deleteuser[1:3]","start":1731246412907,"end":1731246413064,"title":"features\/Deleteuser[1:3] 19:16:52.907-19:16:53.064 User can delete user","className":"failed"},{"id":2,"group":1,"content":"features\/UpdateUser[1:5]","start":1731246413441,"end":1731246413613,"title":"features\/UpdateUser[1:5] 19:16:53.441-19:16:53.613 User can update user"},{"id":3,"group":1,"content":"features\/GetUser[1:3]","start":1731246413287,"end":1731246413403,"title":"features\/GetUser[1:3] 19:16:53.287-19:16:53.403 User can get user"},{"id":4,"group":1,"content":"features\/GetAllUsers[1:3]","start":1731246413125,"end":1731246413242,"title":"features\/GetAllUsers[1:3] 19:16:53.125-19:16:53.242 User can get user"},{"id":5,"group":1,"content":"features\/CreateUser[1:5]","start":1731246411621,"end":1731246412402,"title":"features\/CreateUser[1:5] 19:16:51.621-19:16:52.402 User can Create user","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
